@@ -10,10 +10,12 @@ class PresentationController extends AbstractController
     /**
      * @Route("/presentation", name="presentation")
      */
-    public function index()
+    public function presentation()
     {
-        return $this->render('presentation/index.html.twig', [
+        return $this->render('presentation/presentation.html.twig', [
             'controller_name' => 'PresentationController',
         ]);
+
+        
     }
 }

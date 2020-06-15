@@ -16,5 +16,23 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+    /**
+         * @Route("/user/login", name="login")
+         */
+    public function login()
+    {
+        return $this->render('user/login.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
+    /**
+     * @Route("/user/signup", name="signup")
+     */
+    public function signup()
+    {
+        return $this->render('user/signup.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
 
 }

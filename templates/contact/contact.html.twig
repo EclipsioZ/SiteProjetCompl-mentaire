@@ -1,3 +1,60 @@
-<h1>Nous contacter </h1>
+{% extends 'base.html.twig' %}
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<!-- forme du formulaire de contact -->
+
+ <div class="row justify-content-center mt-5" >
+ <div class="card fat"> <!--Creationde la carte contenant la mise en page du formulaire -->
+   <div class="card-body">
+ <form> <!-- formulaire de contact -->
+  <fieldset>
+    <legend>Nous contacter</legend>
+
+    <!-- saisi nom -->
+    <div class="form-group ">
+
+      <div class="row ">
+        <div class="col">
+        <label>Prenom </label>
+          <input type="FirstName" class="form-control"  placeholder="Entrer votre prénom">
+        </div>
+        <div class="col">
+        <label>Nom </label>
+          <input type="LastName" class="form-control"  placeholder="Entrer votre nom de famille ">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- saisi email -->
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Adresse mail</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre email">
+
+    </div>
+    <!--<div class="form-group">
+      <label for="exampleInputPassword1">mot de passes</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>-->
+      <!-- saisi message -->
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Votre Message</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Entrer votre message"></textarea>
+    </div>
+
+    <button class="btn btn-primary md-center " type="submit">Envoyer</button>
+ </form>
+  </div>
+  </div>
+</div>
+
+
+{% endblock %}

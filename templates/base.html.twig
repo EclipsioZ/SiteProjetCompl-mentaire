@@ -32,8 +32,8 @@
             <div class="form-inline my-2 my-lg-0"><!-- bouton à droite dans le header -->
 
              <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
-            {% if app.session.get('idUser') == null %}<a href="/signing"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
-            {% if app.session.get('idUser') == null %}<a href="/login"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
+           {% if app.session.get('idUser') == null %}<a href="/signup"><a href="/user/signup" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
+         {% if app.session.get('idUser') == null %}<a href="/login"><a href="/user/login" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
             {% if app.session.get('idUser') != null %}<a href="/profile"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" > Compte</a>{% endif %}
             {% if app.session.get('idUser') != null %}<a href="/logout"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se déconnecter</a>{% endif %}
 
@@ -47,24 +47,26 @@
         <footer class="footer fixed-bottom bg-secondary ">
 
               <div class="container-fluid center >">
-               <!--rangée -->
+               <!--rangée 1-->
                 <div class="row text-light text-center">
 
                   <div class="col-lg text-right"> Mentions légales</div>
-                  <div class="col-lg">CDV </div>
+                  <div class="col-lg text-left">CDV </div>
 
-                  <div class="col-lg">
-                   <div class=" text-left ">© 2020 Copyright:
+                </div>
+                <!--rangée 2-->
+                  <div class=" row text-light text-center">
+                  <!-- Copyright -->
+                  <div class="col-lg text-center">© 2020 Copyright:
                     <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-                   </div>
                   </div>
-              </div>
 
+              </div>
 
           </footer>
 
           {% block body %}{% endblock %}
-        </div>
+
 
         {% block javascripts %}{% endblock %}
         <!-- Footer -->
