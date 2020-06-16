@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
 <style>
@@ -8,13 +8,50 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<!-- forme du formulaire de contact -->
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Covid projet Flo/SiteProjetCompl-mentaire/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Covid projet Flo/SiteProjetCompl-mentaire/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
+ <div class="row justify-content-center mt-5" >
+ <div class="card fat"> <!--Creationde la carte contenant la mise en page du formulaire -->
+   <div class="card-body">
+ <form> <!-- formulaire de contact -->
+
+    <legend>S'inscrire</legend>
+
+    <!-- saisi nom -->
+    <div class="form-group ">
+
+      <div class="row ">
+        <div class="col">
+        <label>Prenom </label>
+          <input type="FirstName" class="form-control"  placeholder="Entrer votre prénom">
+        </div>
+        <div class="col">
+        <label>Nom </label>
+          <input type="LastName" class="form-control"  placeholder="Entrer votre nom de famille ">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- saisi email -->
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Adresse mail</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre email">
+    </div>
+
+    <!-- saisi mot de passe -->
+    <div class="form-group">
+      <label for="exampleInputPassword1">mot de passe</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrer votre mot de passe">
+    </div>
+
+
+    <button class="btn btn-primary md-center " type="submit">s'inscrire</button>
+ </form>
+  </div>
+  </div>
 </div>
+
+
 {% endblock %}

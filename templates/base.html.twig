@@ -33,7 +33,7 @@
 
              <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
            {% if app.session.get('idUser') == null %}<a href="/signup"><a href="/user/signup" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
-         {% if app.session.get('idUser') == null %}<a href="/login"><a href="/user/login" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
+          {% if app.session.get('idUser') == null %}<a href="/login"><a href="/user/login" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
             {% if app.session.get('idUser') != null %}<a href="/profile"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" > Compte</a>{% endif %}
             {% if app.session.get('idUser') != null %}<a href="/logout"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se déconnecter</a>{% endif %}
 
@@ -52,17 +52,6 @@
 
                   <div class="col-lg text-right"> Mentions légales</div>
                   <div class="col-lg text-left">CDV </div>
-
-                </div>
-                <!--rangée 2-->
-                  <div class=" row text-light text-center">
-                  <!-- Copyright -->
-                  <div class="col-lg text-center">© 2020 Copyright:
-                    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-                  </div>
-
-              </div>
-
           </footer>
 
           {% block body %}{% endblock %}
