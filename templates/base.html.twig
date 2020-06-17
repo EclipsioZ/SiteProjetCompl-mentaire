@@ -32,33 +32,25 @@
             <div class="form-inline my-2 my-lg-0"><!-- bouton à droite dans le header -->
 
              <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
-           {% if app.session.get('idUser') == null %}<a href="/signup"><a href="/user/signup" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
+          {% if app.session.get('idUser') == null %}<a href="/signup"><a href="/user/signup" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
           {% if app.session.get('idUser') == null %}<a href="/login"><a href="/user/login" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
-            {% if app.session.get('idUser') != null %}<a href="/profile"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" > Compte</a>{% endif %}
-            {% if app.session.get('idUser') != null %}<a href="/logout"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se déconnecter</a>{% endif %}
+          {% if app.session.get('idUser') != null %}<a href="/profile"><a href="/user/user" class="btn btn-outline-light form-control mr-sm-2" role="button" > Compte</a>{% endif %}
+          {% if app.session.get('idUser') != null %}<a href="/logout"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se déconnecter</a>{% endif %}
 
             </div>
           </div>
         </nav>
 
-
-
-         <!-- Footer -->
-        <footer class="footer fixed-bottom bg-secondary ">
-
-              <div class="container-fluid center >">
-               <!--rangée 1-->
-                <div class="row text-light text-center">
-
-                  <div class="col-lg text-right"> Mentions légales</div>
-                  <div class="col-lg text-left">CDV </div>
-          </footer>
+      <!--Footer -->
+      <footer class="footer fixed-bottom bg-primary text-center">
+       <p><a class="text-light" href="/home/legal">Mention légales</a> - <a class="text-light" href="/home/saleCondition">Conditions générale de ventes</a></p>
+      </footer>
 
           {% block body %}{% endblock %}
 
 
         {% block javascripts %}{% endblock %}
-        <!-- Footer -->
+
 
 
 
