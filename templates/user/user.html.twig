@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Conditions générales de ventes{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container p-5 mt-5 "> <!--container contenant l'affichage des infos du compte-->
+    <div>
+        <h1 class="txt-center ">Nom Prenom </h1>
+    </div>
+    <hr>
+  <div>
+    <div class="row mt-5"><!--<div class="col-sm-4">photo de profile</div>-->
+      <div class="col-sm-4">
+      <qr> <!--Rangée avec Prenom et nom-->
+       <div class=""><h2>Prenom</h2></div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Covid projet Flo/SiteProjetCompl-mentaire/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Covid projet Flo/SiteProjetCompl-mentaire/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
+       <hr>
+       <input type="FirstName" class="form-control"  placeholder="Prénom">
+       <div class="textarea mt-4"><h2>Nom</h2></div>
+       <hr>
+       <input type="lastname" class="form-control"  placeholder="Nom">
+      </div>
+
+      <div class="col-sm-8"><!--Rangée avec Mail et mot de passes-->
+      <qr>
+       <div class=""><h2>Mail</h2></div>
+       <hr>
+      <input type="email" class="form-control" placeholder="Email">
+
+       <div class="textarea mt-4"><h2>Mot de passe</h2></div>
+       <hr>
+       <input type="FirstName" class="form-control"  placeholder="mdp">
+      </div>
+
+      </div>
+
+    </div>
+  </div>
 </div>
+
+
 {% endblock %}

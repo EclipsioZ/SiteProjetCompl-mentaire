@@ -3,10 +3,7 @@
 {% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+
 
 <!-- forme du formulaire de contact -->
 
@@ -15,10 +12,11 @@
    <div class="card-body">
  <form> <!-- formulaire de contact -->
 
-    <legend>S'inscrire</legend>
+
+    <h2 class="text-center">S'inscrire</h2>
 
     <!-- saisi nom -->
-    <div class="form-group ">
+    <div class="form-group mt-4">
 
       <div class="row ">
         <div class="col">
@@ -32,7 +30,6 @@
       </div>
     </div>
 
-
     <!-- saisi email -->
 
     <div class="form-group">
@@ -45,7 +42,13 @@
       <label for="exampleInputPassword1">mot de passe</label>
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrer votre mot de passe">
     </div>
-    <button class="btn btn-primary md-center " type="submit">S'inscrire</button>
+
+   <!-- bouton "s'incrire" -->
+    <div class="container">
+  <div class="row">
+    <div class="col text-center mt-3">
+      <button class="btn btn-primary md-center " type="submit"><h4>S'inscrire</h4></button>
+    </div>
  </form>
   </div>
   </div>
