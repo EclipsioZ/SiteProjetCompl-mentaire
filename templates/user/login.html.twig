@@ -16,18 +16,18 @@
  <form> <!-- formulaire de contact -->
 
       <h2 class="text-center">Se connecter</h2>
-
+      <p style="color:red; text-align:center;">{{ error is defined ? error : '' }}</p>
     <!-- saisi email -->
 
     <div class="form-group mt-4">
-      <label for="exampleInputEmail1">Adresse mail</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre email">
+      <label for="mail">Adresse mail</label>
+      <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrer votre email" value="{{ data is defined ? data.mail : '' }}">
     </div>
 
     <!-- saisi mot de passe -->
     <div class="form-group">
-      <label for="exampleInputPassword1">mot de passe</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrer votre mot de passe">
+      <label for="password">mot de passe</label>
+      <input type="password" class="form-control" id="pass" name="password" placeholder="Entrer votre mot de passe">
     </div>
 
     <!-- bouton "se connecter" -->
