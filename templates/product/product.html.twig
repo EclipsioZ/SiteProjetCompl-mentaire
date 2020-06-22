@@ -3,18 +3,42 @@
 {% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container p-5 mt-5 "> <!--container contenant l'affichage des infos du compte-->
+    <div>
+        <h1 class="txt-center ">Nom Produit </h1>
+    </div>
+    <hr>
+  <div>
+    <div class="row mt-5"><!--<div class="col-sm-4">photo de profile</div>-->
+      <div class="col">
+      <qr> <!--Rangée avec Prenom et nom-->
+       <a href="{site_url}scents/baobab/pearls/black-pearls"><img src="{site_url}images/products/4906_1.jpg"></a>
+       <hr>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+       <hr>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Covid projet Flo/SiteProjetCompl-mentaire/src/Controller/ProductController.php'|file_link(0) }}">src/Controller/ProductController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Covid projet Flo/SiteProjetCompl-mentaire/templates/product/product.html.twig'|file_link(0) }}">templates/product/product.html.twig</a></code></li>
-    </ul>
+      </div>
+
+      <div class="col"><!--Rangée avec Mail et mot de passes-->
+      <qr>
+       <div class=""><h2>Description</h2></div>
+       <br>
+       <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+       <hr>
+
+
+       <div class="mt-2 mb-5"><h3>Quantité</h3></div>
+
+       <button type="button " class="btn btn-success"><h4>Ajouter au panier</h4></button>
+
+        <hr>
+
+      </div>
+
+      </div>
+
+    </div>
+  </div>
 </div>
+
 {% endblock %}
