@@ -27,7 +27,7 @@ class UserController extends AbstractController
       /**
          * @Route("/user/login", name="login")
          */
-    public function login()
+    public function login(Request $request)
     {
         $session = $request->getSession();
         $session->remove('user');
