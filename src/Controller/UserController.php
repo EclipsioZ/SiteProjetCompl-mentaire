@@ -16,7 +16,7 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
-    /**
+      /**
          * @Route("/user/login", name="login")
          */
     public function login()

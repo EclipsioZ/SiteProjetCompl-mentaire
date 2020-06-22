@@ -3,40 +3,53 @@
 {% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
-<div class="container p-5 mt-5 "> <!--container contenant l'affichage des infos du compte-->
+<div class="container p-5 mt-5 "> <!--container contenant l'affichage du produit-->
     <div>
         <h1 class="txt-center ">Nom Produit </h1>
     </div>
     <hr>
   <div>
-    <div class="row mt-5"><!--<div class="col-sm-4">photo de profile</div>-->
-      <div class="col">
+    <div class="row mt-5"><!--rangéee contenant la photo, desceription, quantité et le bouton ajouter au panier-->
+      <div class="col sm-2">
       <qr> <!--Rangée avec Prenom et nom-->
-       <a href="{site_url}scents/baobab/pearls/black-pearls"><img src="{site_url}images/products/4906_1.jpg"></a>
-       <hr>
-
+                    <img src="https://cdn.myminifactory.com/assets/object-assets/5ea27e1d729b9/images/720X720-sweden-orange-with-shield.jpg" alt="Logo HTML w3" class="rounded img-fluid"
        <hr>
 
       </div>
 
-      <div class="col"><!--Rangée avec Mail et mot de passes-->
+      <div class="col "><!--Colonnes contenant description/, quantité, prix et le bouton ajout panier-->
       <qr>
        <div class=""><h2>Description</h2></div>
        <br>
        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
        <hr>
-
-
-       <div class="mt-2 mb-5"><h3>Quantité</h3></div>
-
-       <button type="button " class="btn btn-success"><h4>Ajouter au panier</h4></button>
-
-        <hr>
+       <div class=" mb-3"></div>
+     <div class="row ">
+       <div class="col">
+       <div class="textarea mt-1"><h2>Prix : c'est gratuit</h2></div>
 
       </div>
 
-      </div>
+      <div class="col ">
+              <div class="form-group">
+         <label for="quantity"><h3>Quantité</h3></label>
+         <select class="form-control" id="quantity">
+           <option>1</option>
+           <option>2</option>
+           <option>3</option>
+           <option>4</option>
+           <option>5</option>
+         </select>
+        </div>
 
+      </div>
+      <hr>
+      </div>
+      <hr>
+      <button type="button" class="btn btn-success"><h4>Ajouter au panier</h4></button>
+      </div>
+      </div>
     </div>
   </div>
 </div>

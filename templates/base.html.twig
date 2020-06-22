@@ -32,10 +32,10 @@
             <div class="form-inline my-2 my-lg-0"><!-- bouton à droite dans le header -->
 
              <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
-          {% if app.session.get('idUser') == null %}<a href="/signup"><a href="/user/signup" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
-          {% if app.session.get('idUser') == null %}<a href="/login"><a href="/user/login" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
-          {% if app.session.get('idUser') == null %}<a href="/profile"><a href="/user/user" class="btn btn-outline-light form-control mr-sm-2" role="button" > Compte</a>{% endif %}
-          {% if app.session.get('idUser') != null %}<a href="/logout"><a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se déconnecter</a>{% endif %}
+          {% if app.session.get('idUser') == null %}<a href="/user/signup" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
+          {% if app.session.get('idUser') == null %}<a href="/user/login" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
+          {% if app.session.get('idUser') == null %}<a href="/user/user" class="btn btn-outline-light form-control mr-sm-2" role="button" > Compte</a>{% endif %}
+          {% if app.session.get('idUser') != null %}<a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se déconnecter</a>{% endif %}
 
             </div>
           </div>
