@@ -31,12 +31,14 @@
             </ul>
             <div class="form-inline my-2 my-lg-0"><!-- bouton à droite dans le header -->
 
-             <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
-          {% if app.session.get('idUser') == null %}<a href="/user/signup" class="btn btn-outline-light form-control mr-sm-2" role="button" >S'inscrire</a>{% endif %}
-          {% if app.session.get('idUser') == null %}<a href="/user/login" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se connecter</a>{% endif %}
-          {% if app.session.get('idUser') == null %}<a href="/user/user" class="btn btn-outline-light form-control mr-sm-2" role="button" > Compte</a>{% endif %}
-          {% if app.session.get('idUser') != null %}<a href="/user" class="btn btn-outline-light form-control mr-sm-2" role="button" >Se déconnecter</a>{% endif %}
-
+            {% if user == null %}
+                <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/login'">Se connecter</button>
+                <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/signup'">S'inscrire</button>
+            {% else %}
+                <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
+                <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/profil'">Profil</button>
+                <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/logout'">Se déconnecter</button>
+            {% endif %}
             </div>
           </div>
         </nav>

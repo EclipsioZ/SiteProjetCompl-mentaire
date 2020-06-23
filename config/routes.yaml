@@ -2,3 +2,11 @@
 index_page:
    path: /
    controller: App\Controller\MainController::index
+
+user_logout:
+  path: /user/logout
+  controller: App\Controller\UserController::logout
+
+user_profil:
+  path: /user/profil
+  controller: App\Controller\UserController::profilePage

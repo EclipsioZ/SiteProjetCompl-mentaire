@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class HomeController extends GeneratorController
 {
 
 
@@ -14,7 +14,7 @@ class HomeController extends AbstractController
      * @Route("/", name= "home")
      */
     public function home (){
-      return $this->render('home/home.html.twig');
+      return $this->rendering('home/home.html.twig');
     }
 
     /**
@@ -22,7 +22,7 @@ class HomeController extends AbstractController
      */
     public function legal()
     {
-        return $this->render('home/legal.html.twig');
+        return $this->rendering('home/legal.html.twig');
     }
 
     /**
@@ -30,7 +30,7 @@ class HomeController extends AbstractController
      */
     public function saleCondition()
     {
-        return $this->render('home/saleCondition.html.twig');
+        return $this->rendering('home/saleCondition.html.twig');
     }
 
 

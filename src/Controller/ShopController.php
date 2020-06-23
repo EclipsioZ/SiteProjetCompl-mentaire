@@ -5,14 +5,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ShopController extends AbstractController
+class ShopController extends GeneratorController
 {
     /**
      * @Route("/shop", name="shop")
      */
     public function shop()
     {
-        return $this->render('shop/shop.html.twig', [
+        return $this->rendering('shop/shop.html.twig', [
             'controller_name' => 'ShopController',
         ]);
     }
