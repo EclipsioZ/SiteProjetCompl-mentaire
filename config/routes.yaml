@@ -14,3 +14,7 @@ user_profil:
 user_profil_update:
   path: /user/profil/update
   controller: App\Controller\UserController::profileUpdate
+
+admin_page:
+  path: /admin/adminPage
+  controller: App\Controller\AdminController::admin

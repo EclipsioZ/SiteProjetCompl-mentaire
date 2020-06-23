@@ -51,7 +51,6 @@ class UserController extends GeneratorController
             return $this->redirect($this->generateUrl('index_page'));
 
         }
-
         return $this->rendering('user/login.html.twig', [
             'controller_name' => 'UserController',
         ]);
@@ -133,23 +132,23 @@ class UserController extends GeneratorController
     
     }
 
-    // public function token(Request $request) {
+    public function token(Request $request) {
 
-    //     $session = $request->getSession();
+        $session = $request->getSession();
 
-    //     $user = new User($request);
+        $user = new User($request);
 
-    //     if(!$user->isLogged()) {
-    //         die('You are not logged');
-    //     }
+        if(!$user->isLogged()) {
+            die('You are not logged');
+        }
 
-    //     API::call('GET', '/token', false, $user->getUser()->token);
+        API::call('GET', '/token', false, $user->getUser()->token);
 
-    //     return new Response(
-    //         'Bienvenue dans la page top secrète, ' . $user->getUser()->token
-    //     );
+        return new Response(
+            'Bienvenue dans la page top secrète, ' . $user->getUser()->token
+        );
 
-    // }
+    }
 
     public function profilePage(Request $request)
     {
@@ -161,8 +160,6 @@ class UserController extends GeneratorController
         }
 
         $profil = API::call('GET', '/users/profil', $session->get('user'));
-
-        var_dump($profil);
         return $this->rendering('user/user.html.twig', ['mail' => $profil->mail, 'firstname' => $profil->firstname, 'lastname' => $profil->lastname, 'address' => $profil->address, 'phone' => $profil->phone]);
 
     }
@@ -174,7 +171,6 @@ class UserController extends GeneratorController
         if(!$user->isLogged()) {
             die('Not authorized');
         }
-
 
         $data = API::process($request, [
             'lastname' => true,
@@ -190,18 +186,19 @@ class UserController extends GeneratorController
         
 
             // Get from API
-            $user = API::call('POST', '/users/profil/update', $data);
+            $response = API::call('POST', '/users/profil/update', $data);
 
-            if(!$user) {
+            if(!$response) {
                 return $this->rendering('user/user.html.twig', [ 'error' => 'Impossible de se connecter pour le moment.', 'data' => $data ]);
             }
 
-            if(isset($user->error)) {
-                return $this->rendering('user/user.html.twig', [ 'error' => $user->error, 'data' => $data ]);
+            if(isset($response->error)) {
+                return $this->rendering('user/user.html.twig', [ 'error' => $response->error, 'data' => $data ]);
             }
 
             $profil = API::call('GET', '/users/profil', $session->get('user'));
             $session->set('user', $profil);
+            $user = new User($request);
 
             return $this->redirect($this->generateUrl('index_page'));
 

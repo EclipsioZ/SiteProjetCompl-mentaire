@@ -10,7 +10,7 @@
     <body>
 
     <!-- barre de navigation -->
-      <nav class="navbar navbar-expand-lg  navbar-dark bg-primary" role="navigation">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
           <a class="navbar-brand" href="/">SolidarityBOND</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,6 +35,9 @@
                 <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/login'">Se connecter</button>
                 <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/signup'">S'inscrire</button>
             {% else %}
+                {% if admin == true %}
+                  <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/admin/adminPage'">Panel Admin</button>
+                {% endif %}
                 <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
                 <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/profil'">Profil</button>
                 <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/logout'">Se déconnecter</button>
@@ -43,12 +46,10 @@
           </div>
         </nav>
 
-
       <!--Footer -->
       <footer class="footer fixed-bottom bg-primary text-center">
        <p><a class="text-light" href="/home/legal">Mention légales</a> - <a class="text-light" href="/home/saleCondition">CGV</a> - <a class="text-light" href="https://www.cesi.fr/" target="_blank">Propulsé par Cesi </a></p>
       </footer>
-
 
           {% block body %}{% endblock %}
 
