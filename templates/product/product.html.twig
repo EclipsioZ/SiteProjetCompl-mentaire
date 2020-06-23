@@ -19,32 +19,32 @@
       <qr>
        <h2>Description</h2>
        <br>
-       <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+       <div><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
        <br>
        <hr>
        <div class="text-left "><h2>Prix : c'est gratuit</h2></div>
       <hr>
       <br>
-      <div class="row ">
-      <div class="col-sm-7 align-self-center ">
-      <button type="button" class="btn btn-success btn-lg"><h4>Ajouter au panier</h4></button>
 
-
-
+      <div class="row "><!--rangéée avec deux collonnnes acceuillant la quantité et le bouton ajout panier-->
+      <div class="col col-lg2 align-baseline">
+      <div class="form-group">
+       <label for="quantity" class="text-center"><h4>Quantité</h4></label><!--selection de quantité-->
+       <select class="form-control" id="quantity">
+         <option>1</option>
+         <option>2</option>
+         <option>3</option>
+         <option>4</option>
+         <option>5</option>
+       </select>
+      </div>
      </div>
 
-     <div class="col-sm-3 align-self-right ">
-       <div class="form-group">
-        <label for="quantity" class="text-center"><h3>Quantité</h3></label>
-        <select class="form-control" id="quantity">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-       </div>
-      </div>
+     <div class="col col-lg8 align-baseline">
+     <br>
+     <button type="button" class="btn btn-success btn-lg "><h4>Ajouter au panier</h4></button><!--Bouton ajout panier-->
+     </div>
+
      </div>
     </div>
    </div>
