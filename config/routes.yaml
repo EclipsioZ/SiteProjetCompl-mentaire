@@ -10,3 +10,7 @@ user_logout:
 user_profil:
   path: /user/profil
   controller: App\Controller\UserController::profilePage
+
+user_profil_update:
+  path: /user/profil/update
+  controller: App\Controller\UserController::profileUpdate

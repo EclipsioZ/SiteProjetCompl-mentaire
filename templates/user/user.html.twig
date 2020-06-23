@@ -6,45 +6,52 @@
 
 <div class="container p-5 mt-5 "> <!--container contenant l'affichage des infos du compte-->
     <div>
-        <h1 class="txt-center ">Nom Prenom </h1>
+        <h1 class="txt-center ">Profil</h1>
     </div>
     <hr>
-  <div>
-    <div class="row mt-5"><!--<div class="col-sm-4">photo de profile</div>-->
-      <div class="col-sm-4">
-      <qr> <!--Rangée avec Prenom et nom-->
-       <div class=""><h2>Prenom</h2></div>
-       <hr>
-       <input type="FirstName" class="form-control"  placeholder="Prénom">
-       <div class="textarea mt-4"><h2>Nom</h2></div>
+  <form action="/user/profil/update">
+    <div>
+      <div class="row mt-5"><!--<div class="col-sm-4">photo de profile</div>-->
+        <div class="col-sm-4">
+        <qr> <!--Rangée avec Prenom et nom-->
+        <div class=""><h2>Prénom</h2></div>
+        <hr>
+        <input type="test" class="form-control" id="fistname" name="firstname" required="required" placeholder="Prénom" value="{{ firstname is defined ? firstname : '' }}">
+        <div class="textarea mt-4"><h2>Mail</h2></div>
 
-       <hr>
-       <input type="lastname" class="form-control"  placeholder="Nom">
-      <div class="textarea mt-4"><h2>Adresse</h2></div>
-      <hr>
-      <input type="lastname" class="form-control"  placeholder="Adresse">
-     </div>
-
-      <div class="col-sm-8"><!--Rangée avec Mail et mot de passes-->
-      <qr>
-       <div class=""><h2>Mail</h2></div>
-       <hr>
-      <input type="email" class="form-control" placeholder="Email">
-
-       <div class="textarea mt-4"><h2>Mot de passe</h2></div>
-       <hr>
-       <input type="FirstName" class="form-control"  placeholder="mdp">
-
-       <div class="textarea mt-4"><h2> Télephone</h2></div>
-       <hr>
-      <input type="phone" class="form-control" placeholder="numero de téléphone">
-
+        <hr>
+        <input type="email" aria-describedby="emailHelp" class="form-control" id="mail" name="mail" required="required" placeholder="Email" value="{{ mail is defined ? mail : '' }}">
+        <div class="textarea mt-4"><h2>Adresse</h2></div>
+        <hr>
+        <input type="text" class="form-control" id="address" name="address" required="required" placeholder="Adresse" value="{{ address is defined ? address : '' }}">
       </div>
 
-      </div>
+        <div class="col-sm-8"><!--Rangée avec Mail et mot de passes-->
+        <qr>
+        <div class=""><h2>Nom</h2></div>
+        <hr>
+        <input type="text" class="form-control" id="lastname" name="lastname" required="required" placeholder="Nom" value="{{ lastname is defined ? lastname : '' }}">
+
+        <div class="textarea mt-4"><h2> Télephone</h2></div>
+        <hr>
+        <input id="phone" type="tel" class="form-control" name="phone" required="required" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" placeholder="numero de téléphone" value="{{ phone is defined ? phone : '' }}">
+
+        </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col text-left mt-3">
+                    <button class="btn btn-primary md-center"><h4><a href="/" style="text-decoration: none;color: white">Retour</a></h4></button>
+            </div>
+            <div class="col text-right mt-3">
+                    <button class="btn btn-primary md-center " type="submit"><h4>Mettre à jour</h4></button>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
+    </form>
   </div>
 </div>
 
