@@ -48,7 +48,6 @@ class UserController extends GeneratorController
             }
 
             $session->set('user', $user);
-
             return $this->redirect($this->generateUrl('index_page'));
 
         }
@@ -125,12 +124,6 @@ class UserController extends GeneratorController
         ]);
     }
 
-    // public function adminPage(Request $request) {
-
-    //     return $this->rendering('admin.html.twig');
-
-    // }
-
     public function logout(Request $request) {
 
         $session = $request->getSession();
@@ -161,9 +154,57 @@ class UserController extends GeneratorController
     public function profilePage(Request $request)
     {
 
+        $session = $request->getSession();
         $user = new User($request);
         if(!$user->isLogged()) {
             die('Not authorized');
+        }
+
+        $profil = API::call('GET', '/users/profil', $session->get('user'));
+
+        var_dump($profil);
+        return $this->rendering('user/user.html.twig', ['mail' => $profil->mail, 'firstname' => $profil->firstname, 'lastname' => $profil->lastname, 'address' => $profil->address, 'phone' => $profil->phone]);
+
+    }
+
+    public function profileUpdate(Request $request)
+    {
+        $session = $request->getSession();
+        $user = new User($request);
+        if(!$user->isLogged()) {
+            die('Not authorized');
+        }
+
+
+        $data = API::process($request, [
+            'lastname' => true,
+            'firstname' => true,
+            'mail' => true,
+            'phone' => true,
+            'address' => true
+        ]);
+
+            $data['id'] = $session->get('user')->id;
+
+        if(!isset($data['error'])) {
+        
+
+            // Get from API
+            $user = API::call('POST', '/users/profil/update', $data);
+
+            if(!$user) {
+                return $this->rendering('user/user.html.twig', [ 'error' => 'Impossible de se connecter pour le moment.', 'data' => $data ]);
+            }
+
+            if(isset($user->error)) {
+                return $this->rendering('user/user.html.twig', [ 'error' => $user->error, 'data' => $data ]);
+            }
+
+            $profil = API::call('GET', '/users/profil', $session->get('user'));
+            $session->set('user', $profil);
+
+            return $this->redirect($this->generateUrl('index_page'));
+
         }
 
         return $this->rendering('user/user.html.twig');

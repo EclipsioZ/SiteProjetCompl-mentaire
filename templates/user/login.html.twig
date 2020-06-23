@@ -21,13 +21,13 @@
 
     <div class="form-group mt-4">
       <label for="mail">Adresse mail</label>
-      <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrer votre email" value="{{ data is defined ? data.mail : '' }}">
+      <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" required="required" placeholder="Entrer votre email" value="{{ data is defined ? data.mail : '' }}">
     </div>
 
     <!-- saisi mot de passe -->
     <div class="form-group">
       <label for="password">mot de passe</label>
-      <input type="password" class="form-control" id="pass" name="password" placeholder="Entrer votre mot de passe">
+      <input type="password" class="form-control" id="pass" name="password" required="required" placeholder="Entrer votre mot de passe">
     </div>
 
     <!-- bouton "se connecter" -->
