@@ -12,7 +12,7 @@ class AdminController extends GeneratorController
      */
     public function admin()
     {
-        return $this->render('admin/admin.html.twig', [
+        return $this->rendering('admin/admin.html.twig', [
             'controller_name' => 'AdminController',
         ]);
     }
