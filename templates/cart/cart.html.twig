@@ -5,25 +5,20 @@
 {% block body %}
 <div class="container p-3 mt-5 "> <!--container contenant l'affichage du panier-->
     <div>
-        <h1 class="txt-center ">Panier</h1>
+        <h1 class="txt-center mt-5 ">Panier</h1>
     </div>
 
-  <form action="">
-    <div>
-    <table class="table table-hover text-center mt-5">
+<table class="table table-hover text-center mt-5"><!--creation du tableau du panier-->
   <thead>
     <tr>
-      <th scope="col">Produit</th>
-
+      <th scope="col">Produit</th><!--3 champs du panier-->
       <th scope="col">Quantité</th>
-
       <th scope="col">Prix</th>
-
     </tr>
   </thead>
-  <tbody>
+  <tbody><!--Debut corps contenant tableau-->
     <tr class="table">
-      <th scope="row">Nom produit</th>
+      <th scope="row ">Nom produit</th> <!--tuple d'un article-->
       <td><div class="form-group">
       <select class="form-control" id="exampleSelect1">
         <option>1</option>
@@ -33,22 +28,47 @@
         <option>5</option>
       </select>
     </div></td>
-      <td>Column content
 
-      <button type="button pd-3" class="btn btn-danger">supprimer</button>
-
+      <td><!--bouton supprimer-->
+    <div class="row">
+      <div class="mx-auto"<p>Prix</p></div>
+      <button type="button " class="btn btn-danger">supprimer</button>
       </td>
-
-
-    </tr>
-
+     </div>
     </tr>
   </tbody>
 </table>
 
+<div class="container mt-5">
+<div class="row">
+<div class="card fat "> <!--Creation de la carte contenant les totaux,produits,livraison et total -->
+  <div class="card-body ">
+     <h2 class="text-center">Total</h2>
+     <table class="table table-hover mt-4"><!--creation du tableau du panier-->
+       <thead>
+         <tr>
+           <th scope="col">TotalProduit</th><!--3 champs du panier-->
+           <th scope="col">Livraison</th>
+           <th scope="col">Total</th>
+         </tr>
+       </thead>
+       <tbody><!--Debut corps contenant tableau des totaux-->
+         <tr class="table">
+           <th scope="row ">Total produit</th> <!--total produit-->
+           <th scope="row ">livraison</th> <!--livraisone-->
+           <th scope="row ">Total</th> <!--grand total-->
+         </tr>
+       </tbody>
+     </table>
+     <div class="text-right mt-3">
+     <button type="button" class="btn btn-success" class="text-center"><h4>Reserver</h4></button><!--Bouton Reserver -->
+     </div>
     </div>
-    </form>
+   </div>
   </div>
+ </div>
+
+</div>
 
   <style>
   body {
