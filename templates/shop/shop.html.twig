@@ -22,10 +22,31 @@
         <div class="col">
           <h1 style="margin: 25px">{{ categorie.label }}<h1>
         </div>
+<<<<<<< HEAD
         <div class="col" style="text-align: right">
+=======
+      </div>
+
+
+      <div class="col-lg-9"> <!-- Marge entre de hauteur et largeur des cartes des produits-->
+        <div class="row mt-5">
+
+          <div class="col-lg-5 col-md-6 mb-4"> <!-- parametrage des marges des cartes en fonction de la taille de la fenètre sur lesquels elles sont affichés-->
+            <div class="card h-100">
+              <img class="card-img-top" src="https://cdn.myminifactory.com/assets/object-assets/5ea27e1d729b9/images/720X720-sweden-orange-with-shield.jpg" alt="">
+              <div class="card-body"><!-- Corps de la carte contenant les nom du produit, son prix, sa description, un bouton en savoir plus et un boutoun supprimer seulement visible et utilisable par les admins-->
+                <h4 class="card-title text-primary">Nom produit</h4>
+                <h5>Gratuit</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div class="card-footer text-center">
+              <button type="button " class="btn btn-primary">En savoir plus</button>
+
+>>>>>>> 6b64885cb5cbec7b4b0e2464a4facdc5f3fb1cd8
             {% if admin == true %}
             <button class="btn btn-success" role="button" onclick="location.href='/'" style="margin-top: 35px">Ajouter Produit</button>
             {% endif %}
+<<<<<<< HEAD
         </div>
       </div>
         <div class="row justify-content-md-center">
@@ -150,4 +171,18 @@ section{
 
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+=======
+              </div>
+            </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+>>>>>>> 6b64885cb5cbec7b4b0e2464a4facdc5f3fb1cd8
 {% endblock %}

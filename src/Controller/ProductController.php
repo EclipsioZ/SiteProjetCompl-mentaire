@@ -17,5 +17,15 @@ class ProductController extends GeneratorController
         ]);
     }
 
+    /**
+     * @Route("/product/addProduct", name="product")
+     */
+    public function addProduct()
+    {
+        return $this->rendering('product/addProduct.html.twig', [
+            'controller_name' => 'ProductController',
+        ]);
+    }
+
 
 }
