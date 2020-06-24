@@ -3,67 +3,55 @@
 {% block title %}Hello ShopController!{% endblock %}
 
 {% block body %}
-<!-- Page Content -->
-  <div class="container">
+
+  <div class="container"> <!--conteneur contenant les categories ainsi que les cartes permettant d'afficher les produits-->
 
     <div class="row mt-5">
-
       <div class="col-lg-3">
 
         <h1 class="my-4">Shop</h1>
-        <div class="list-group">
+        <div class="list-group"><!--Liste contenant les catégorie et le bouton ajout d'article accesible seulement par les admins-->
           <a href="#" class="list-group-item">Visières</a>
           <a href="#" class="list-group-item">Masques</a>
-
+          {% if admin == true %}
+            <button class="btn btn-success" role="button" onclick="location.href='/'">ajouter un article</button>
+           {% endif %}
         </div>
-
       </div>
-      <!-- /.col-lg-3 -->
 
-      <div class="col-lg-9">
+
+      <div class="col-lg-9"> <!-- Marge entre de hauteur et largeur des cartes des produits-->
         <div class="row mt-5">
 
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-5 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title-primary">Nom produit</h4>
+              <img class="card-img-top" src="https://cdn.myminifactory.com/assets/object-assets/5ea27e1d729b9/images/720X720-sweden-orange-with-shield.jpg" alt="">
+              <div class="card-body"><!-- Corps de la carte contenant les nom du produit, son prix, sa description, un bouton en savoir plus et un boutoun supprimer seulement visible et utilisable par les admins-->
+                <h4 class="card-title text-primary">Nom produit</h4>
                 <h5>Gratuit</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer">
+              <div class="card-footer text-center">
+              <button type="button " class="btn btn-primary">En savoir plus</button>
 
+            {% if admin == true %}
+              <button class="btn btn-danger" role="button" onclick="location.href='/'">supprimer</button>
+            {% endif %}
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title-primary">Nom produit</h4>
-                <h5>Gratuit</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-
-              </div>
             </div>
           </div>
-
-
-
-
-
         </div>
-        <!-- /.row -->
 
       </div>
-      <!-- /.col-lg-9 -->
+
 
     </div>
-    <!-- /.row -->
+
 
   </div>
-  <!-- /.container -->
+
+
+  </div>
+
 {% endblock %}
