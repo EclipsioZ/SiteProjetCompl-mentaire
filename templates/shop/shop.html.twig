@@ -3,55 +3,151 @@
 {% block title %}Hello ShopController!{% endblock %}
 
 {% block body %}
+<div class="row">
+  <div class="sidebar">
+  <header>Catégorie</header>
+  <ul>
+  {% for categorie in categories %}
+  <li><a href="#">{{categorie.label}}</a></li>
+  {% endfor %}
 
-  <div class="container"> <!--conteneur contenant les categories ainsi que les cartes permettant d'afficher les produits-->
-
-    <div class="row mt-5">
-      <div class="col-lg-3">
-
-        <h1 class="my-4">Shop</h1>
-        <div class="list-group"><!--Liste contenant les catégorie et le bouton ajout d'article accesible seulement par les admins-->
-          <a href="#" class="list-group-item">Visières</a>
-          <a href="#" class="list-group-item">Masques</a>
-          {% if admin == true %}
-            <button class="btn btn-success" role="button" onclick="location.href='/'">ajouter un article</button>
-           {% endif %}
+  </ul>
+  </div>
+        
+  {% for categorie in categories %}
+    <div class="col-10">
+      <div class="cards">
+      {% if categorie.products|length > 0 %}
+      <div class="row">
+        <div class="col">
+          <h1 style="margin: 25px">{{ categorie.label }}<h1>
+        </div>
+        <div class="col" style="text-align: right">
+            {% if admin == true %}
+            <button class="btn btn-success" role="button" onclick="location.href='/'" style="margin-top: 35px">Ajouter Produit</button>
+            {% endif %}
         </div>
       </div>
+        <div class="row justify-content-md-center">
+          <div class="card-deck">
+          {% for product in categorie.products %}
+                <div class="card" style="margin-top: 10px; margin-bottom: 10px;">
+                  <img class="card-img-top" width="100%" height="200px" src={{product.picture}} alt="">
+                  <div class="card-body"><!-- Corps de la carte contenant les nom du produit, son prix, sa description, un bouton en savoir plus et un boutoun supprimer seulement visible et utilisable par les admins-->
+                    <h4 class="card-title text-primary">{{product.name}}</h4>
+                    <h5>Gratuit</h5>
+                    <p class="card-text">{{product.description}}</p>
+                  </div>
+                  <div class="card-footer text-center">
+                  <button type="button " class="btn btn-primary">En savoir plus</button>
 
-
-      <div class="col-lg-9"> <!-- Marge entre de hauteur et largeur des cartes des produits-->
-        <div class="row mt-5">
-
-          <div class="col-lg-5 col-md-6 mb-4">
-            <div class="card h-100">
-              <img class="card-img-top" src="https://cdn.myminifactory.com/assets/object-assets/5ea27e1d729b9/images/720X720-sweden-orange-with-shield.jpg" alt="">
-              <div class="card-body"><!-- Corps de la carte contenant les nom du produit, son prix, sa description, un bouton en savoir plus et un boutoun supprimer seulement visible et utilisable par les admins-->
-                <h4 class="card-title text-primary">Nom produit</h4>
-                <h5>Gratuit</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer text-center">
-              <button type="button " class="btn btn-primary">En savoir plus</button>
-
-            {% if admin == true %}
-              <button class="btn btn-danger" role="button" onclick="location.href='/'">supprimer</button>
-            {% endif %}
-              </div>
-            </div>
-            </div>
+                  {% if admin == true %}
+                  <button class="btn btn-danger" role="button" onclick="location.href='/'">supprimer</button>
+                  {% endif %}
+                  </div>
+                </div>
+          {% endfor %}
           </div>
         </div>
-
+      {% endif %}
       </div>
-
-
     </div>
+  {% endfor %}
+</div>
+
+      <footer class="footer bg-primary text-center" style="margin-top: 20px">
+       <p><a class="text-light" href="/home/legal" style="margin-top: 10px">Mention légales</a> - <a class="text-light" href="/home/saleCondition" style="margin-top: 10px">CGV</a> - <a class="text-light" href="https://www.cesi.fr/" target="_blank" style="margin-top: 10px">Propulsé par Cesi </a></p>
+      </footer>
 
 
-  </div>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
 
+.footer {
+  height: 50px;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  </div>
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 55px;
+}
 
+.cards {
+  margin-left: 250px;
+}
+
+.row {
+  margin-left: 0px;
+}
+
+.card {
+    margin-bottom: 30px;
+    margin-left: 15px;
+    width: 300px;
+    height: 400px;
+}
+.card-text {
+    font-size: 18px;
+}
+.card-deck {
+  margin-left: 250px;
+  align: center;
+}
+.sidebar {
+  z-index: 1;
+  position: fixed;
+  left: 0px;
+  width: 250px;
+  height: 100%;
+  background: #042331;
+}
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  user-select: none;
+}
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  transition: .4s;
+}
+ul li:hover a{
+  padding-left: 50px;
+}
+.sidebar ul a i{
+  margin-right: 16px;
+}
+section{
+  background: url(bg.jpeg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: all .5s;
+}
+</style>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 {% endblock %}
