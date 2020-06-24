@@ -46,10 +46,6 @@
           </div>
         </nav>
 
-      <!--Footer -->
-      <footer class="footer fixed-bottom bg-primary text-center">
-       <p><a class="text-light" href="/home/legal">Mention légales</a> - <a class="text-light" href="/home/saleCondition">CGV</a> - <a class="text-light" href="https://www.cesi.fr/" target="_blank">Propulsé par Cesi </a></p>
-      </footer>
 
           {% block body %}{% endblock %}
 
@@ -60,6 +56,13 @@
 
 
     </body>
-
-
+<style>
+.navbar {
+  z-index: 1;
+  background-color: #333;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+</style>
 </html>

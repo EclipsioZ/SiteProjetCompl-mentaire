@@ -18,3 +18,7 @@ user_profil_update:
 admin_page:
   path: /admin/index
   controller: App\Controller\AdminController::admin
+
+shop_page:
+  path: /shop
+  controller: App\Controller\ShopController::shop
