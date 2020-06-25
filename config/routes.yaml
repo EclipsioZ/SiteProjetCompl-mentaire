@@ -22,3 +22,15 @@ admin_page:
 shop_page:
   path: /shop
   controller: App\Controller\ShopController::shop
+
+shop_AddProduct_page:
+  path: /shop/addProduct
+  controller: App\Controller\ShopController::pageAddProduct
+
+shop_AddProduct:
+  path: /shop/addProduct/add
+  controller: App\Controller\ShopController::addProduct
+
+shop_DelProduct:
+   path: /shop/delProduct/{id}
+   controller: App\Controller\ShopController::delProduct

@@ -8,9 +8,18 @@
   <header>Catégorie</header>
   <ul>
   {% for categorie in categories %}
-  <li><a href="#">{{categorie.label}}</a></li>
-  {% endfor %}
 
+    {% if categorie.products|length > 0 %}
+      <li><a href="#{{categorie.id}}">{{categorie.label}}</a></li>
+    {% else %}
+      {% if admin == true %}
+      <li><a href="#{{categorie.id}}">{{categorie.label}}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% if admin == true %}
+  <button class="btn btn-success" role="button" onclick="location.href='/shop/addProduct'" style="margin-top: 15px; margin-left: 40px">Ajouter Catégorie</button>
+  {% endif %}
   </ul>
   </div>
         
@@ -20,11 +29,11 @@
       {% if categorie.products|length > 0 %}
       <div class="row">
         <div class="col">
-          <h1 style="margin: 25px">{{ categorie.label }}<h1>
+          <h1 style="margin: 25px" id="{{categorie.id}}">{{ categorie.label }}<h1>
         </div>
         <div class="col" style="text-align: right">
             {% if admin == true %}
-            <button class="btn btn-success" role="button" onclick="location.href='/'" style="margin-top: 35px">Ajouter Produit</button>
+            <button class="btn btn-success" role="button" onclick="location.href='/shop/addProduct'" style="margin-top: 35px">Ajouter Produit</button>
             {% endif %}
         </div>
       </div>
@@ -42,7 +51,7 @@
                   <button type="button " class="btn btn-primary">En savoir plus</button>
 
                   {% if admin == true %}
-                  <button class="btn btn-danger" role="button" onclick="location.href='/'">supprimer</button>
+                  <button class="btn btn-danger" role="button" onclick="location.href='/shop/delProduct/{{ product.id }}'">supprimer</button>
                   {% endif %}
                   </div>
                 </div>
