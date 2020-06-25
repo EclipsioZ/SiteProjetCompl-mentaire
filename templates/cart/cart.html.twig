@@ -39,12 +39,12 @@
   </tbody>
 </table>
 
-<div class="container mt-5">
-<div class="row float-right">
+<div class="container mt-4">
+<div class="row float-sm-right justify-content-center mt-5"> <!--paramétrage rangée contenant la carte des totaux+ reservation. Format d'ecran large elle se place à droite puis lorsque le format devient etroit elle se centre au milieu de l'écan-->
 <div class="card fat"> <!--Creation de la carte contenant les totaux,produits,livraison et total -->
   <div class="card-body ">
      <h2 class="text-center">Total</h2>
-     <table class="table table-hover mt-4"><!--creation du tableau du panier-->
+     <table class="table table-hover mt-4 p-5"><!--creation du tableau du panier-->
        <thead>
          <tr>
            <th scope="col">TotalProduit</th><!--3 champs du panier-->
@@ -60,13 +60,21 @@
          </tr>
        </tbody>
      </table>
-     <div class="text-right mt-3">
-     <button type="button" class="btn btn-success" class="text-center"><h4>Reserver</h4></button><!--Bouton Reserver -->
-     </div>
+    <div class="form group mt-5"> <!--formulaire contenant la cesi de l'adressse de livraison ainqi que le bouton reserver-->
+
+       <h2 class="text-center">Reservation</h2>
+
+       <div class="textarea mt-4 p-1"><h>Adresse de livraison</h4></div>
+
+       <div class="text-right mt-2">
+       <input type="text" class="form-control" id="address" name="address" required="required" placeholder="Votre adresse de livraison" value="{{ address is defined ? address : '' }}"><!--champ formulaire pur adresse de Livraison-->
+       <button type="button" class="btn btn-success mt-4" ><h4>Reserver</h4></button><!--Bouton Reserver -->
+      </div>
     </div>
    </div>
   </div>
  </div>
+</div>
 
 </div>
 
