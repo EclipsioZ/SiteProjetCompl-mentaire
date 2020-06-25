@@ -8,17 +8,38 @@
   <header>Catégorie</header>
   <ul>
   {% for categorie in categories %}
-
     {% if categorie.products|length > 0 %}
-      <li><a href="#{{categorie.id}}">{{categorie.label}}</a></li>
+      <div class="col" style="position: relative">
+      <li style="display: inline"><a href="#{{categorie.id}}">{{categorie.label}}</a></li>
+      </div>
+      {% if admin == true %}
+            <div class="col" style="text-align: center; z-index: 1; margin-right: 20px">
+        <button type="button" class="btn btn-danger" onclick="location.href='/shop/delCategory/{{ categorie.id }}'">Supprimer</button>
+        </div>
+      {% endif %}
     {% else %}
       {% if admin == true %}
-      <li><a href="#{{categorie.id}}">{{categorie.label}}</a></li>
+      <div class="col">
+        <li><a href="#{{categorie.id}}" >{{categorie.label}}</a></li>
+      </div> 
+      <div class="col" style="text-align: center; z-index: 1;margin-right: 20px">
+        <button type="button" onclick="location.href='/shop/delCategory/{{ categorie.id }}'" class="btn btn-danger">Supprimer</button>
+      </div>
       {% endif %}
     {% endif %}
   {% endfor %}
   {% if admin == true %}
-  <button class="btn btn-success" role="button" onclick="location.href='/shop/addProduct'" style="margin-top: 15px; margin-left: 40px">Ajouter Catégorie</button>
+  <button id="button-add-category" class="btn btn-success" role="button" onclick="display('text-add-category','button-add-category','button-valid-category');" style="margin-top: 15px; margin-left: 40px; position: absolute; z-index: 1">Ajouter Catégorie</button>
+  
+  <form action="/shop/addCategory">
+    <div class="input-group mb-3">
+    <input id="text-add-category" type="text" class="form-control hidden" name="label" placeholder="Nom de la catégorie" aria-label="Nom de la catégorie" aria-describedby="basic-addon2" style="margin-top:15px; margin-left: 10px">
+    <div class="input-group-append">
+      <button id='button-valid-category' class="btn btn-outline-secondary hidden" type="submit" style="margin-top:15px; margin-right: 10px_">Ajouter</button>
+    </div>
+  </form>
+
+</div>
   {% endif %}
   </ul>
   </div>
@@ -33,7 +54,7 @@
         </div>
         <div class="col" style="text-align: right">
             {% if admin == true %}
-            <button class="btn btn-success" role="button" onclick="location.href='/shop/addProduct'" style="margin-top: 35px">Ajouter Produit</button>
+            <button class="btn btn-success" role="button" onclick="location.href='/shop/addProduct/{{ categorie.id }}'" style="margin-top: 35px">Ajouter Produit</button>
             {% endif %}
         </div>
       </div>
@@ -48,7 +69,7 @@
                     <p class="card-text">{{product.description}}</p>
                   </div>
                   <div class="card-footer text-center">
-                  <button type="button " class="btn btn-primary">En savoir plus</button>
+                  <button type="button " class="btn btn-primary" onclick="location.href='/shop/displayProduct/{{ product.id }}'">En savoir plus</button>
 
                   {% if admin == true %}
                   <button class="btn btn-danger" role="button" onclick="location.href='/shop/delProduct/{{ product.id }}'">supprimer</button>
@@ -64,13 +85,30 @@
   {% endfor %}
 </div>
 
-      <footer class="footer bg-primary text-center" style="margin-top: 20px">
-       <p><a class="text-light" href="/home/legal" style="margin-top: 10px">Mention légales</a> - <a class="text-light" href="/home/saleCondition" style="margin-top: 10px">CGV</a> - <a class="text-light" href="https://www.cesi.fr/" target="_blank" style="margin-top: 10px">Propulsé par Cesi </a></p>
-      </footer>
+<footer class="footer bg-primary text-center" style="margin-top: 20px">
+  <p><a class="text-light" href="/home/legal" style="margin-top: 10px">Mention légales</a> - <a class="text-light" href="/home/saleCondition" style="margin-top: 10px">CGV</a> - <a class="text-light" href="https://www.cesi.fr/" target="_blank" style="margin-top: 10px">Propulsé par Cesi </a></p>
+</footer>
+
+
+<script type="text/javascript"> 
+function display(id, idButton, idSButton) 
+{ 
+	if (document.getElementById(id).style.visibility == "hidden") 
+      document.getElementById(idButton).style.visibility = "hidden";
+      document.getElementById(idButton).style.visibility = "hidden";
+      document.getElementById(id).style.visibility = "visible";
+      document.getElementById(idSButton).style.visibility = "visible";
+} 
+</script> 
+
 
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+.hidden {
+  visibility: hidden;
+}
 
 .footer {
   height: 50px;

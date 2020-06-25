@@ -6,7 +6,7 @@
 
 
 <!-- forme du formulaire pour ajouter un produit -->
-  <form action="/shop/addProduct/add">
+  <form action="/shop/addProduct/new/add">
  <div class="row justify-content-center mt-5" >
  <div class="card fat"> <!--Creation de la carte contenant la mise en page du formulaire -->
    <div class="card-body">
@@ -22,7 +22,7 @@
       <div class="row ">
         <div class="col">
         <label>Nom produit </label>
-          <input type="FirstName" name="name" class="form-control" required="required" placeholder="Entrer le nom du produit">
+          <input type="text" name="name" class="form-control" required="required" placeholder="Entrer le nom du produit">
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
       <label>Catégorie</label>
       <select class="browser-default custom-select" name="category">
         {% for categorie in categories %}
-        <option value={{ categorie.id }}>{{ categorie.label }}</option>
+        <option value={{ categorie.id }} {{ categorie_default == categorie.id ? 'selected' : '' }}>{{ categorie.label }}</option>
         {% endfor %}
       </select>
     </div>

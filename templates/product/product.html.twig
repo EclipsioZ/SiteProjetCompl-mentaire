@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container p-5 mt-5 "> <!--container contenant l'affichage du produit-->
     <div>
-        <h1 class="txt-center ">Nom Produit </h1>
+        <h1 class="txt-center ">{{product.name}}</h1>
     </div>
     <hr>
 
@@ -20,16 +20,16 @@
        <br>
        <h2>Description</h2><!--rangée description-->
        <br>
-       <div><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+       <div><p>{{product.description}} </p></div>
        <br>
        <hr>
        <div class="row ml-1">
-       <div class="text-left"><h2>Prix :  gratuit</h2></div><!--rangée-->
+       <div class="text-left"><h2>Prix : {{ product.price != 0 ? product.price : "gratuit"}} {{ product.price != 0 ? "€" : ""}}</h2></div><!--rangée-->
        </div>
        <hr>
        <br>
 
-      {% if product.stock > 0 %} <!--Si stock produit different de 0 alors on affiche la quantité et l'ajout panier -->
+      {% if product.nbStock > 0 %} <!--Si stock produit different de 0 alors on affiche la quantité et l'ajout panier -->
 
       <div class="row ml-1"><!--rangée avec deux colonnnes acceuillant la quantité et le bouton ajout panier-->
       <div class="col-sm-3 align-self-center">
@@ -39,11 +39,10 @@
       <div class="form-group">
        <label for="quantity" class="text-center"></label><!--selection de quantité-->
        <select class="form-control" id="quantity">
-         <option>1</option>
-         <option>2</option>
-         <option>3</option>
-         <option>4</option>
-         <option>5</option>
+        {% for i in range(1, product.nbStock) %}
+        <option>{{i}}</option>
+        {% endfor %}
+       
        </select>
       </div>
      </div>

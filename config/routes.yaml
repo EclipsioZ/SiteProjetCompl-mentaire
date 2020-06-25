@@ -24,13 +24,25 @@ shop_page:
   controller: App\Controller\ShopController::shop
 
 shop_AddProduct_page:
-  path: /shop/addProduct
+  path: /shop/addProduct/{id}
   controller: App\Controller\ShopController::pageAddProduct
 
 shop_AddProduct:
-  path: /shop/addProduct/add
+  path: /shop/addProduct/new/add
   controller: App\Controller\ShopController::addProduct
 
 shop_DelProduct:
    path: /shop/delProduct/{id}
    controller: App\Controller\ShopController::delProduct
+
+shop_addCategory:
+   path: /shop/addCategory
+   controller: App\Controller\ShopController::addCategory
+
+shop_DelCategory:
+   path: /shop/delCategory/{id}
+   controller: App\Controller\ShopController::delCategory
+
+shop_display_product:
+   path: /shop/displayProduct/{id}
+   controller: App\Controller\ShopController::pageDisplayProduct
