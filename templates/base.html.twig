@@ -38,7 +38,7 @@
                 {% if admin == true %}
                   <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/admin/index'">Panel Admin</button>
                 {% endif %}
-                <a href="/cart" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
+                <a href="/shop/cart/{{user.id}}" class="btn btn-outline-light form-control mr-sm-2" role="button" >Panier</a>
                 <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/profil'">Profil</button>
                 <button class="btn btn-outline-light form-control mr-sm-2" role="button" onclick="location.href='/user/logout'">Se déconnecter</button>
             {% endif %}

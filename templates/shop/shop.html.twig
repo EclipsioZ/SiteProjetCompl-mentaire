@@ -65,7 +65,7 @@
                   <img class="card-img-top" width="100%" height="200px" src={{product.picture}} alt="">
                   <div class="card-body"><!-- Corps de la carte contenant les nom du produit, son prix, sa description, un bouton en savoir plus et un boutoun supprimer seulement visible et utilisable par les admins-->
                     <h4 class="card-title text-primary">{{product.name}}</h4>
-                    <h5>Gratuit</h5>
+                    <h5>Prix : {{ product.price != 0 ? product.price : "gratuit"}} {{ product.price != 0 ? "€" : ""}}</h5>
                     <p class="card-text">{{product.description}}</p>
                   </div>
                   <div class="card-footer text-center">

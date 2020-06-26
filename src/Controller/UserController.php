@@ -21,7 +21,6 @@ class UserController extends GeneratorController
     public function login(Request $request)
     {
         $session = $request->getSession();
-        //$session->remove('user');
         $user = new User($request);
 
         if($user->isLogged()) {

@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Acme\CustomBundle\API;
 
+use App\Acme\CustomBundle\User;
+
 use Symfony\Component\HttpFoundation\Request;
 
 class ShopController extends GeneratorController
@@ -168,6 +170,61 @@ class ShopController extends GeneratorController
             'controller_name' => 'ShopController',
             'product' => $product->product
         ]);
+    }
+
+    public function pageCart($id=null)
+    {
+
+        if($id == null) {
+            return $this->redirect('/shop');
+        }
+
+        $data=[];
+        $data['id']= $id;
+
+        $cart = API::call('POST', '/shop/getCart', $data);
+
+        return $this->rendering('cart/cart.html.twig', [
+            'controller_name' => 'ShopController',
+            'carts' => $cart->cart
+        ]);
+    }
+
+    public function addCart(Request $request, $id=null)
+    {
+
+        if($id == null) {
+            return $this->redirect('/shop');
+        }
+
+        $session = $request->getSession();
+        $user = new User($request);
+
+       if(!$user->isLogged()) {
+            die('You are not logged');
+        }
+
+        $data = API::process($request, [
+            'quantity' => true
+        ]);
+
+        $data['id']= $id;
+        $data['userID']= $user->getUser()->id;
+
+        if(!isset($data['error'])) {
+            $response = API::call('POST', '/shop/addCart', $data);
+            $displayCategories = API::call('GET', '/shop/getDisplayShop');
+            if(!$response) {
+                return $this->rendering('shop/shop.html.twig', [ 'error' => 'Impossible d\'ajouter le produit aux panier', 'data' => $data, 'categories' => $displayCategories->displayCategories]);
+            }
+
+            if(isset($response->error)) {
+                return $this->rendering('shop/shop.html.twig', [ 'error' => $response->error, 'data' => $data, 'categories' => $displayCategories->displayCategories]);
+            }
+            return $this->redirect($this->generateUrl('shop_page'));
+        }
+
+        return $this->redirect($this->generateUrl('shop_page'));
     }
 
 }

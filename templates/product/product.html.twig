@@ -8,60 +8,61 @@
         <h1 class="txt-center ">{{product.name}}</h1>
     </div>
     <hr>
+  <form action="/shop/cart/add/{{ product.id }}">
+    <div>
+      <div class="row mt-5"><!--rangéee contenant la photo, desceription, quantité et le bouton ajouter au panier-->
+        <div class="col-sm-6"><!--Colonne contenant l'image-->
+          <img src="{{product.picture}}" target="_blank" alt="Logo HTML w3" class="rounded img-fluid">
 
-  <div>
-    <div class="row mt-5"><!--rangéee contenant la photo, desceription, quantité et le bouton ajouter au panier-->
-      <div class="col-sm-6"><!--Colonne contenant l'image-->
-        <img src="https://cdn.myminifactory.com/assets/object-assets/5ea27e1d729b9/images/720X720-sweden-orange-with-shield.jpg" target="_blank" alt="Logo HTML w3" class="rounded img-fluid">
 
+        </div>
+        <div class="col mt-2"><!--Colonnes contenant description/, quantité, prix et le bouton ajout panier-->
+        <br>
+        <h2>Description</h2><!--rangée description-->
+        <br>
+        <div><p>{{product.description}} </p></div>
+        <br>
+        <hr>
+        <div class="row ml-1">
+        <div class="text-left"><h2>Prix : {{ product.price != 0 ? product.price : "gratuit"}} {{ product.price != 0 ? "€" : ""}}</h2></div><!--rangée-->
+        </div>
+        <hr>
+        <br>
+
+        {% if product.nbStock > 0 %} <!--Si stock produit different de 0 alors on affiche la quantité et l'ajout panier -->
+
+        <div class="row ml-1"><!--rangée avec deux colonnnes acceuillant la quantité et le bouton ajout panier-->
+        <div class="col-sm-3 align-self-center">
+        <h5>Quantité</h5>
+        </div>
+        <div class="col-sm-3 align-self-center ">
+        <div class="form-group">
+        <label for="quantity" class="text-center"></label><!--selection de quantité-->
+        <select class="form-control" id="quantity" name="quantity">
+          {% for i in range(1, product.nbStock) %}
+          <option>{{i}}</option>
+          {% endfor %}
+        
+        </select>
+        </div>
+      </div>
+
+      <div class="col-sm-6 align-self-center"><!--Colonnes contenant le bouton ajout au panier-->
+      <br>
+      <button type="submit" class="btn btn-success btn-lg" ><h4>Ajouter au panier</h4></button><!--Bouton ajout panier-->
+      </div>
+
+      {% else %} <!--Si stock produit = 0 alors on affiche le message si dessous -->
+
+      <h5 class="text-danger">Plus de stocks actuellement.</h5>
+      </div>
+
+      {% endif %}
 
       </div>
-      <div class="col mt-2"><!--Colonnes contenant description/, quantité, prix et le bouton ajout panier-->
-       <br>
-       <h2>Description</h2><!--rangée description-->
-       <br>
-       <div><p>{{product.description}} </p></div>
-       <br>
-       <hr>
-       <div class="row ml-1">
-       <div class="text-left"><h2>Prix : {{ product.price != 0 ? product.price : "gratuit"}} {{ product.price != 0 ? "€" : ""}}</h2></div><!--rangée-->
-       </div>
-       <hr>
-       <br>
-
-      {% if product.nbStock > 0 %} <!--Si stock produit different de 0 alors on affiche la quantité et l'ajout panier -->
-
-      <div class="row ml-1"><!--rangée avec deux colonnnes acceuillant la quantité et le bouton ajout panier-->
-      <div class="col-sm-3 align-self-center">
-      <h5>Quantité</h5>
-      </div>
-      <div class="col-sm-3 align-self-center ">
-      <div class="form-group">
-       <label for="quantity" class="text-center"></label><!--selection de quantité-->
-       <select class="form-control" id="quantity">
-        {% for i in range(1, product.nbStock) %}
-        <option>{{i}}</option>
-        {% endfor %}
-       
-       </select>
-      </div>
-     </div>
-
-     <div class="col-sm-6 align-self-center"><!--Colonnes contenant le bouton ajout au panier-->
-     <br>
-     <button type="button" class="btn btn-success btn-lg "><h4>Ajouter au panier</h4></button><!--Bouton ajout panier-->
-     </div>
-
-     {% else %} <!--Si stock produit = 0 alors on affiche le message si dessous -->
-
-     <h5 class="text-danger">Plus de stocks actuellement.</h5>
-     </div>
-
-     {% endif %}
-
     </div>
-   </div>
-  </div>
+    </div>
+  </form>
 </div>
 
 {% endblock %}
