@@ -8,64 +8,75 @@
 
 <div class="container-flex" id="cover" ><!--Conteneur prenant toute la largeur de la page contenant une photo de couverture et un message de bienvenue -->
   <img class="d-block w-100"src="https://raw.githubusercontent.com/EclipsioZ/SiteProjetCompl-mentaire/master/img/imgBackground/campus_cesi_toulouse-8-2.jpg"  >
-  <div class="centered" ><h1 class="h1-responsive ">Bienvenue Chez SolidarityBond</h1></div>
+  <div class="centered" ><h1 class="h1-responsive ">Bienvenue chez SolidarityBond</h1></div>
 </div>
 
 
-<div class=" container p-5">
+<div class=" container p-5"><!--Conteneur avec la présentation de solidaity bond -->
  <div class="row mt-5">
    <div class="col">
    <h1 class="text-center">Qui sommes nous ?</h1>
    <p class="text-center">SolidarityBOND est une association fondée en mai 2020 lors de la crise sanitaire du covid-19 par les étudiants en seconde année du cycle préparatoire d'ingénieur spécialité informatique du Campus du CESI à Toulouse Labège.
-   Le but de cette association est de permettre au visiteurs du sites de réserver des protections sanitaires gratuitement! afin de proteger leur proches ou leurs employés.
+   Le but de cette association est de permettre au visiteurs du sites de réserver des protections sanitaires gratuitement! afin de protéger leurs proches ou leurs employés.
    </p>
    </div>
  </div>
 </div>
 
 
-<div class="container-flex bg-dark " id="nosPorduits">
+<div class="container-flex bg-dark " ><!--Conteneur divisée en deux avec un message à propos de la boutique et une illustration-->
   <div class="row" >
-  <div class="col-sm p-5">
-  <h1 class="text-white">Nos produits</h1>
-  <p class="text-white">Les produits distribués par SolidarityBOND sont tous assemblés au Fablab du Campus CESI de Labège. Vous pouvez les visioner en appuyant sur le bouton ci-dessous:
-  </p>
-
-  <button type="button" class="btn btn-primary" onclick="location.href='/shop/displayProduct/'"><h6>Nos produits</h6></button>
-  </div>
-  <div class="col-sm" style="background:transparent url('https://raw.githubusercontent.com/EclipsioZ/SiteProjetCompl-mentaire/master/img/imgBackground/neonbrand-85Mt6ZK9ons-unsplash.jpg') no-repeat center center /cover">
-  </div>
+      <div class="col-sm p-5">
+      <h1 class="text-white">Nos produits</h1>
+      <p class="text-white">Les produits distribués par SolidarityBOND sont tous assemblés au Fablab du Campus CESI de Labège. Vous pouvez les visionner en appuyant sur le bouton ci-dessous:
+      </p>
+      <button type="button" class="btn btn-primary mt-3" onclick="location.href='/shop'"><h6>Le shop</h6></button>
+      </div>
+    <div class="col-sm" style="background:transparent url('https://raw.githubusercontent.com/EclipsioZ/SiteProjetCompl-mentaire/master/img/imgBackground/3d.jpg') no-repeat center center /cover">
+    <p class="p-5">     </p>
+    </div>
   </div>
 </div>
 
-
- <div class=" container p-5">
-  <div class="row mt-5 mb-5">
-    <div class="col">
-    <h1 class="text-center">Qui sommes nous ?</h1>
-    <p class="text-center">SolidarityBOND est une association fondée en mai 2020 lors de la crise sanitaire du covid-19 par les étudiants en seconde année du cycle préparatoire d'ingénieur spécialité informatique du Campus du CESI à Toulouse Labège.
-    Le but de cette association est de permettre au visiteurs du sites de réserver des protections sanitaires gratuitement, afin de protéger leur proches ou leurs employés. </p>
-    </div>
+<div class=" container p-5"><!--Conteneur avec les logos partenaires de solidaritybond -->
+ <div class="row mt-5">
+   <div class="col">
+   <h1 class="text-center">Nos partenaires</h1>
+  <div class="row lg-5 mt-5 p-5">
+   <div class="col p-5">
+   <img class="d-block centered w-75 "src="https://lh3.googleusercontent.com/proxy/QLuBiBgJJ9TrlzfJdZTKgEjOC8NL_yIkXEFKAv74il8xkKiINCMxtHBZovKCwJLTjr7Fik68CzQUWgK5zI6I3y7CvvKjz_6c-2TtLf-1GhH_iMDuGav9"  >
+   </div>
+   <div class="col p-5">
+   <img class="d-block centered w-75 "src="https://lh3.googleusercontent.com/proxy/xvEIZg759Avo8W-ajbH4aS0v_Rdozfwdfa5BQfU8nd2akx7gUf_buEBUuGi3NtpuQkmwPafGqEcQa_svnQ5Hpm4ThY59rqH90irVvjOBh08UwAlSytrGlTnjXb63hT2Opkqz8FB-KxjJsoU"  >
+   </div>
   </div>
+
+   </div>
  </div>
+</div>
+
+
+
+ <footer class="footer bg-primary text-center mt-5" style="margin-top: 20px"><!--Footer-->
+   <p><a class="text-light" href="/home/legal" style="margin-top: 10px">Mention légales</a> - <a class="text-light" href="/home/saleCondition" style="margin-top: 10px">CGV</a> - <a class="text-light" href="https://www.cesi.fr/" target="_blank" style="margin-top: 10px">Propulsé par Cesi </a></p>
+ </footer>
+
+
+
 
 <style>
 
 body {
   margin-top: 55px;
 }
-/* Container holding the image and the text */
+
 #cover {
   position: relative;
   text-align: center;
 }
 
-#nosProduits{
-  position: relative;
-  text-align: center;
-}
 
-/* Centered text */
+
 .centered {
   position: absolute;
   top: 50%;
@@ -74,6 +85,15 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.footer {
+
+  height: 50px;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 </style>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
