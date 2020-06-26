@@ -6,25 +6,48 @@
 {% block body %}
 
 
- <div class="container-flex">
+<div class="container-flex" id="cover" ><!--Conteneur prenant toute la largeur de la page contenant une photo de couverture et un message de bienvenue -->
   <img class="d-block w-100"src="https://raw.githubusercontent.com/EclipsioZ/SiteProjetCompl-mentaire/master/img/imgBackground/campus_cesi_toulouse-8-2.jpg"  >
-  <div class="centered"><h1 class="h1-responsive ">Bienvenue Chez SolidarityBond</h1></div>
+  <div class="centered" ><h1 class="h1-responsive ">Bienvenue Chez SolidarityBond</h1></div>
 </div>
 
 
 <div class=" container p-5">
  <div class="row mt-5">
- <h1 class="text-center">Qui sommes nous ?</h1>
- <p class="text-center">SolidarityBOND est une association fondé par les étudiants du Campus du CESI de Toulouse.
- Grâce à ce site vous pouvez reserver des protections sanitaires gratuites. </p>
+   <div class="col">
+   <h1 class="text-center">Qui sommes nous ?</h1>
+   <p class="text-center">SolidarityBOND est une association fondée en mai 2020 lors de la crise sanitaire du covid-19 par les étudiants en seconde année du cycle préparatoire d'ingénieur spécialité informatique du Campus du CESI à Toulouse Labège.
+   Le but de cette association est de permettre au visiteurs du sites de réserver des protections sanitaires gratuitement! afin de proteger leur proches ou leurs employés.
+   </p>
+   </div>
  </div>
- <div class="row">
- <h1 class="text-center mt-5">Nos produits phares</h1>
- <p class="text-center">Vous pourrez retrouver nos produits et les reserver gartuitement  dans le shop, ceuxoi-ci sont entierement imprimié et assemblé en France au Fablabs de Toulouse. </p>
- </div>
- </div>
+</div>
 
 
+<div class="container-flex bg-dark " id="nosPorduits">
+  <div class="row" >
+  <div class="col-sm p-5">
+  <h1 class="text-white">Nos produits</h1>
+  <p class="text-white">Les produits distribués par SolidarityBOND sont tous assemblés au Fablab du Campus CESI de Labège. Vous pouvez les visioner en appuyant sur le bouton ci-dessous:
+  </p>
+
+  <button type="button" class="btn btn-primary" onclick="location.href='/shop/displayProduct/'"><h6>Nos produits</h6></button>
+  </div>
+  <div class="col-sm" style="background:transparent url('https://raw.githubusercontent.com/EclipsioZ/SiteProjetCompl-mentaire/master/img/imgBackground/campus_cesi_toulouse-8-2.jpg') no-repeat center center /cover">
+  </div>
+  </div>
+</div>
+
+
+ <div class=" container p-5">
+  <div class="row mt-5 mb-5">
+    <div class="col">
+    <h1 class="text-center">Qui sommes nous ?</h1>
+    <p class="text-center">SolidarityBOND est une association fondée en mai 2020 lors de la crise sanitaire du covid-19 par les étudiants en seconde année du cycle préparatoire d'ingénieur spécialité informatique du Campus du CESI à Toulouse Labège.
+    Le but de cette association est de permettre au visiteurs du sites de réserver des protections sanitaires gratuitement, afin de protéger leur proches ou leurs employés. </p>
+    </div>
+  </div>
+ </div>
 
 <style>
 
@@ -32,7 +55,12 @@ body {
   margin-top: 55px;
 }
 /* Container holding the image and the text */
-.container-flex {
+#cover {
+  position: relative;
+  text-align: center;
+}
+
+#nosProduits{
   position: relative;
   text-align: center;
 }
@@ -45,7 +73,9 @@ body {
   color: white;
   transform: translate(-50%, -50%);
 
+}
+
 
 </style>
-
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 {% endblock %}
