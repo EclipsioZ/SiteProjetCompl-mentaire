@@ -13,7 +13,7 @@
  <div class="row justify-content-center mt-5" >
  <div class="card fat"> <!--Creationde la carte contenant la mise en page du formulaire -->
    <div class="card-body">
- <form> <!-- formulaire de contact -->
+ <form action="/contact/new"> <!-- formulaire de contact -->
   <fieldset>
     <h2 class="text-center">Nous contacter</h2>
 
@@ -22,12 +22,12 @@
 
       <div class="row ">
         <div class="col">
-        <label>Prenom </label>
-          <input type="FirstName" class="form-control"  placeholder="Entrer votre prénom">
+        <label>Prénom</label>
+          <input type="FirstName" class="form-control"  placeholder="Entrer votre prénom" name="firstname" value="{{ user.firstname is defined ? user.firstname : '' }}" {{ user.firstname is defined ? "readonly" : ""}}>
         </div>
         <div class="col">
-        <label>Nom </label>
-          <input type="LastName" class="form-control"  placeholder="Entrer votre nom de famille ">
+        <label>Nom</label>
+          <input type="LastName" class="form-control"  placeholder="Entrer votre nom de famille " name="lastname" value="{{ user.lastname is defined ? user.lastname : '' }}" {{ user.lastname is defined ? "readonly" : ""}}>
         </div>
       </div>
     </div>
@@ -37,13 +37,13 @@
 
     <div class="form-group">
       <label for="exampleInputEmail1">Adresse mail</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre email">
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre email" name="mail" value="{{ user.mail is defined ? user.mail : '' }}" {{ user.mail is defined ? "readonly" : ""}}>
     </div>
 
       <!-- saisi message -->
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Votre Message</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Entrer votre message"></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Entrer votre message" name="message" required="required"></textarea>
     </div>
     <div class="container">
   <div class="row">

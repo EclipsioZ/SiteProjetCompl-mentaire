@@ -17,13 +17,15 @@
       <th scope="col">Message</th>
     </tr>
   </thead>
+  {% for contact in contacts %}
   <tbody><!--Debut corps contenant tableau-->
     <tr class="table"> <!--tuple d'un contact-->
-      <th scope="row ">Nom et prenom </th>
-      <td>adresse mail</td>
-      <td>message</td>
+      <th scope="row ">{{contact.lastname}} {{contact.firstname}}</th>
+      <td>{{contact.mail}}</td>
+      <td>{{contact.content}}</td>
     </tr>
   </tbody>
+  {% endfor %}
 </table>
 </div>
 
@@ -42,15 +44,21 @@
       <th scope="col">Produits</th>
     </tr>
   </thead>
+  {% for command in commands %}
   <tbody><!--Debut corps contenant tableau-->
     <tr class="table"><!--tuple d'une commande-->
-      <th scope="row ">Nom & prenom</th>
-      <td>adresse mail</td>
-      <td>Adresse de livraison</td>
-      <td>N°téléphone</td>
-      <td>quantité + Produits</td>
+      <th scope="row ">{{command.lastname}} {{command.firstname}}</th>
+      <td>{{command.mail}}</td>
+      <td>{{command.address}}</td>
+      <td>{{command.phone}}</td>
+      <td>
+      {% for product in command.products %}
+      [{{product.name}}] * {{product.quantity}} <br>
+      {% endfor %}
+      </td>
     </tr>
   </tbody>
+  {% endfor %}
 </table>
 </div>
 

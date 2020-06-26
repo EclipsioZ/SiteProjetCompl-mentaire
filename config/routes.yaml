@@ -54,3 +54,11 @@ shop_cart:
 shop_add_cart:
    path: /shop/cart/add/{id}
    controller: App\Controller\ShopController::addCart
+
+contact_new:
+   path: /contact/new
+   controller: App\Controller\ContactController::newContact
+
+contact_page:
+   path: /contact
+   controller: App\Controller\ContactController::pageContact
