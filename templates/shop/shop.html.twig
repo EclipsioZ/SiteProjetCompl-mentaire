@@ -69,10 +69,11 @@
                     <p class="card-text">{{product.description}}</p>
                   </div>
                   <div class="card-footer text-center">
-                  <button type="button " class="btn btn-primary" onclick="location.href='/shop/displayProduct/{{ product.id }}'">En savoir plus</button>
+                  <button type="button " class="btn btn-primary" onclick="location.href='/shop/displayProduct/{{ product.id }}'">Détails</button>
 
                   {% if admin == true %}
-                  <button class="btn btn-danger" role="button" onclick="location.href='/shop/delProduct/{{ product.id }}'">supprimer</button>
+                  <button class="btn btn-danger" role="button" onclick="location.href='/shop/delProduct/{{ product.id }}'">Delete</button>
+                  <button class="btn btn-success" role="button" onclick="location.href='/shop/edit/product/{{ product.id }}'">Edit</button>
                   {% endif %}
                   </div>
                 </div>

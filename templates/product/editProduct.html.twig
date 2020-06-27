@@ -6,14 +6,14 @@
 
 
 <!-- forme du formulaire pour ajouter un produit -->
-  <form action="/shop/addProduct/new/add">
+<form action="/shop/editProduct/{{product.id}}">
  <div class="row justify-content-center mt-5" >
  <div class="card fat"> <!--Creation de la carte contenant la mise en page du formulaire -->
    <div class="card-body">
  <form> <!-- formulaire d'ajout d'un produit -->
 
 
-    <h2 class="text-center">Ajouter un produit</h2> <!--Titre ajout produit-->
+    <h2 class="text-center">Editer un produit</h2> <!--Titre ajout produit-->
 
     <p style="color:red; text-align:center;">{{ error is defined ? error : '' }}</p>
 
@@ -21,16 +21,16 @@
     <div class="form-group mt-4">
       <div class="row ">
         <div class="col">
-        <label>Nom produit </label>
-          <input type="text" name="name" class="form-control" required="required" placeholder="Entrer le nom du produit">
+        <label>Nom du produit</label>
+          <input type="text" name="name" class="form-control" required="required" placeholder="Entrer le nom du produit" value="{{product.name}}">
         </div>
       </div>
     </div>
 
     <!-- saisi de la desription -->
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Description du produit</label>
-      <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" placeholder="Entrer la description du produit"></textarea>
+      <label for="exampleFormControlTextarea1">Description</label>
+      <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" placeholder="Entrer la description du produit">{{product.description}}</textarea>
     </div>
 
     <!-- saisi de la catégorie -->
@@ -38,7 +38,7 @@
       <label>Catégorie</label>
       <select class="browser-default custom-select" name="category">
         {% for categorie in categories %}
-        <option value={{ categorie.id }} {{ categorie_default == categorie.id ? 'selected' : '' }}>{{ categorie.label }}</option>
+        <option value={{ categorie.id }} {{ product.ID_Categories == categorie.id ? 'selected' : '' }}>{{ categorie.label }}</option>
         {% endfor %}
       </select>
     </div>
@@ -51,7 +51,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text">€</span>
       </div>
-      <input type="text" class="form-control" aria-label="Amount" name="price">
+      <input type="text" class="form-control" aria-label="Amount" name="price" value="{{product.price}}">
       <div class="input-group-append">
         <span class="input-group-text">.00</span>
       </div>
@@ -62,7 +62,7 @@
 <!--Saisi de la quantité du produits -->
   <div class="form-group">
   <label class="col-form-label" for="inputDefault">Quantité</label>
-  <input type="text" class="form-control"  aria-describedby="quantity" placeholder="Entrer la quantité" id="inputQuantity" name="quantity">
+  <input type="text" class="form-control"  aria-describedby="quantity" placeholder="Entrer la quantité" id="inputQuantity" name="quantity" value="{{product.nbStock}}">
   </div>
 
 
@@ -70,12 +70,12 @@
 <!--Saisi du lien URL de la photo -->
   <div class="form-group">
   <label class="col-form-label" for="inputDefault">Photo du produit</label>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="url" placeholder="Entrer l'URL de la photo du produit" id="inputURL" name="picture">
+  <input type="text" class="form-control" id="basic-url" aria-describedby="url" placeholder="Entrer l'URL de la photo du produit" id="inputURL" name="picture" value="{{product.picture}}">
   </div>
 
    <!-- bouton ajout de produit -->
   <div class="col text-center mt-5 mb-3">
-  <button class="btn btn-primary md-center " type="submit"><h4>Ajouter le produit</h4></button>
+  <button class="btn btn-primary md-center " type="submit"><h4>Editer le produit</h4></button>
   </div>
 
  </form>

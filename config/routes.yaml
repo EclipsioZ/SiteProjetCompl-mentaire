@@ -27,6 +27,14 @@ shop_AddProduct_page:
   path: /shop/addProduct/{id}
   controller: App\Controller\ShopController::pageAddProduct
 
+shop_edit_product_page:
+  path: /shop/edit/product/{id}
+  controller: App\Controller\ShopController::pageEditProduct
+
+shop_edit_product:
+  path: /shop/editProduct/{id}
+  controller: App\Controller\ShopController::editProduct
+
 shop_AddProduct:
   path: /shop/addProduct/new/add
   controller: App\Controller\ShopController::addProduct

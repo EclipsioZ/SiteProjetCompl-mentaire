@@ -38,6 +38,64 @@ class ShopController extends GeneratorController
         ]);
     }
 
+    public function pageEditProduct($id=null)
+    {
+
+        if($id == null) {
+            return $this->redirect('/shop');
+        }
+
+        $data['id'] = $id;
+        $categories = API::call('GET', '/shop/getCategories');
+        $product = API::call('POST', '/shop/getProduct', $data);
+        return $this->rendering('product/editProduct.html.twig', [
+            'controller_name' => 'ShopController',
+            'categories' => $categories->categories,
+            'product' => $product->product
+        ]);
+    }
+
+    public function editProduct(Request $request, $id=null)
+    {
+
+
+        if($id == null) {
+            return $this->redirect('/shop');
+        }
+
+        $data = API::process($request, [
+            'name' => true,
+            'description' => true,
+            'category' => true,
+            'price' => true,
+            'quantity' => true,
+            'picture' => true
+        ]);
+
+        $data['id'] = $id;
+
+        if(!isset($data['error'])) {
+        
+
+            // Get from API
+            $response = API::call('POST', '/shop/editProduct', $data);
+
+            if(!$response) {
+                return $this->rendering('product/editProduct.html.twig', [ 'error' => 'Impossible d\'ajouter le produit', 'data' => $data ]);
+            }
+
+            if(isset($response->error)) {
+                return $this->rendering('product/editProduct.html.twig', [ 'error' => $response->error, 'data' => $data ]);
+            }
+
+            return $this->redirect($this->generateUrl('shop_page'));
+
+        }
+
+        return $this->redirect($this->generateUrl('shop_page'));
+
+    }
+
     public function addProduct(Request $request)
     {
 
@@ -274,6 +332,7 @@ class ShopController extends GeneratorController
 
     public function delProductCart(Request $request, $id=null, $idProduct=null)
     {
+
 
         if($id == null) {
             return $this->redirect('/shop');
