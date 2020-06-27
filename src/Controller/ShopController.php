@@ -75,7 +75,7 @@ class ShopController extends GeneratorController
         $data['id'] = $id;
 
         if(!isset($data['error'])) {
-        
+
 
             // Get from API
             $response = API::call('POST', '/shop/editProduct', $data);
@@ -109,7 +109,7 @@ class ShopController extends GeneratorController
         ]);
 
         if(!isset($data['error'])) {
-        
+
 
             // Get from API
             $response = API::call('POST', '/shop/addProduct', $data);
@@ -284,7 +284,7 @@ class ShopController extends GeneratorController
 
         return $this->redirect($this->generateUrl('shop_page'));
     }
-    
+
     public function commandEvent(Request $request, $id=null, $quantity=null)
     {
 
@@ -312,7 +312,7 @@ class ShopController extends GeneratorController
             $dataq = API::process($request, ["quantity-$i" => true]) + $dataq;
         }
 
-        $data['quantity'] = $dataq; 
+        $data['quantity'] = $dataq;
 
         if(!isset($data['error'])) {
             $response = API::call('POST', '/shop/commandEvent', $data);
@@ -339,13 +339,13 @@ class ShopController extends GeneratorController
         }
 
         if($idProduct == null) {
-            
+
             return $this->redirect('/shop');
         }
 
         $data['id']= $id;
 
-        $data['idProduct'] = $idProduct; 
+        $data['idProduct'] = $idProduct;
 
         if(!isset($data['error'])) {
             $response = API::call('POST', '/shop/delProductCart', $data);
