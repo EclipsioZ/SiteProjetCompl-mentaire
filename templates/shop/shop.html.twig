@@ -21,7 +21,7 @@
       {% if admin == true %}
       <div class="col">
         <li><a href="#{{categorie.id}}" >{{categorie.label}}</a></li>
-      </div> 
+      </div>
       <div class="col" style="text-align: center; z-index: 1;margin-right: 20px">
         <button type="button" onclick="location.href='/shop/delCategory/{{ categorie.id }}'" class="btn btn-danger">Supprimer</button>
       </div>
@@ -30,7 +30,7 @@
   {% endfor %}
   {% if admin == true %}
   <button id="button-add-category" class="btn btn-success" role="button" onclick="display('text-add-category','button-add-category','button-valid-category');" style="margin-top: 15px; margin-left: 40px; position: absolute; z-index: 1">Ajouter Catégorie</button>
-  
+
   <form action="/shop/addCategory">
     <div class="input-group mb-3">
     <input id="text-add-category" type="text" class="form-control hidden" name="label" placeholder="Nom de la catégorie" aria-label="Nom de la catégorie" aria-describedby="basic-addon2" style="margin-top:15px; margin-left: 10px">
@@ -43,7 +43,7 @@
   {% endif %}
   </ul>
   </div>
-        
+
   {% for categorie in categories %}
     <div class="col-10">
       <div class="cards">
@@ -91,16 +91,16 @@
 </footer>
 
 
-<script type="text/javascript"> 
-function display(id, idButton, idSButton) 
-{ 
-	if (document.getElementById(id).style.visibility == "hidden") 
+<script type="text/javascript">
+function display(id, idButton, idSButton)
+{
+	if (document.getElementById(id).style.visibility == "hidden")
       document.getElementById(idButton).style.visibility = "hidden";
       document.getElementById(idButton).style.visibility = "hidden";
       document.getElementById(id).style.visibility = "visible";
       document.getElementById(idSButton).style.visibility = "visible";
-} 
-</script> 
+}
+</script>
 
 
 
