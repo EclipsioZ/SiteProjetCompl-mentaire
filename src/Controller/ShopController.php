@@ -226,5 +226,89 @@ class ShopController extends GeneratorController
 
         return $this->redirect($this->generateUrl('shop_page'));
     }
+    
+    public function commandEvent(Request $request, $id=null, $quantity=null)
+    {
 
+        if($id == null) {
+            return $this->redirect('/shop');
+        }
+
+        if($quantity == null) {
+            return $this->redirect('/shop');
+        }
+
+        $session = $request->getSession();
+        $user = new User($request);
+
+       if(!$user->isLogged()) {
+            die('You are not logged');
+        }
+
+        $data['id']= $id;
+        $data['userID']= $user->getUser()->id;
+
+        $dataq = [];
+
+        for($i = 0; $i < $quantity; $i++) {
+            $dataq = API::process($request, ["quantity-$i" => true]) + $dataq;
+        }
+
+        $data['quantity'] = $dataq; 
+
+        if(!isset($data['error'])) {
+            $response = API::call('POST', '/shop/commandEvent', $data);
+            $displayCategories = API::call('GET', '/shop/getDisplayShop');
+            if(!$response) {
+                return $this->rendering('shop/shop.html.twig', [ 'error' => 'Impossible d\'ajouter le produit aux panier', 'data' => $data, 'categories' => $displayCategories->displayCategories]);
+            }
+
+            if(isset($response->error)) {
+                return $this->rendering('shop/shop.html.twig', [ 'error' => $response->error, 'data' => $data, 'categories' => $displayCategories->displayCategories]);
+            }
+            return $this->redirect($this->generateUrl('shop_page'));
+        }
+
+        return $this->redirect($this->generateUrl('shop_page'));
+    }
+
+    public function delProductCart(Request $request, $id=null, $idProduct=null)
+    {
+
+        if($id == null) {
+            return $this->redirect('/shop');
+        }
+
+        if($idProduct == null) {
+            
+            return $this->redirect('/shop');
+        }
+
+        $data['id']= $id;
+
+        $data['idProduct'] = $idProduct; 
+
+        if(!isset($data['error'])) {
+            $response = API::call('POST', '/shop/delProductCart', $data);
+            $cart = API::call('POST', '/shop/getCart', $data);
+
+            if(!$response) {
+                return $this->rendering('cart/cart.html.twig', [ 'error' => 'Impossible d\'ajouter le produit aux panier', 'data' => $data, 'carts' => $cart->cart]);
+            }
+
+            if(isset($response->error)) {
+                return $this->rendering('cart/cart.html.twig', [ 'error' => $response->error, 'data' => $data, 'carts' => $cart->cart]);
+            }
+
+            return $this->rendering('cart/cart.html.twig', [
+                'controller_name' => 'ShopController',
+                'carts' => $cart->cart
+            ]);
+        }
+
+        return $this->rendering('cart/cart.html.twig', [
+            'controller_name' => 'ShopController',
+            'carts' => $cart->cart
+        ]);
+    }
 }

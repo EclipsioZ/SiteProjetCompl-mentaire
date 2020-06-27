@@ -51,9 +51,17 @@ shop_cart:
    path: /shop/cart/{id}
    controller: App\Controller\ShopController::pageCart
 
+shop_cart_del_product:
+   path: /shop/cart/del/{id}/{idProduct}
+   controller: App\Controller\ShopController::delProductCart
+
 shop_add_cart:
    path: /shop/cart/add/{id}
    controller: App\Controller\ShopController::addCart
+
+shop_command_cart:
+   path: /shop/command/{id}/{quantity} 
+   controller: App\Controller\ShopController::commandEvent
 
 contact_new:
    path: /contact/new
